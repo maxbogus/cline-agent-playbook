@@ -36,9 +36,9 @@ git --no-pager log --oneline -n 20
 git --no-pager diff HEAD~1 HEAD
 git --no-pager show <sha> --stat
 
-# Or set the environment variable once
+# Or set the environment variable once (still add --no-pager when you remember it)
 export GIT_PAGER=cat
-git log --oneline -n 20
+git --no-pager log --oneline -n 20 | head
 ```
 
 ## Command Templates
