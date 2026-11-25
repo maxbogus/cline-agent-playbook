@@ -1,0 +1,11 @@
+# Notice
+
+This repository contains only the items marked `public` in `registry.json`.
+
+The author's private configuration additionally holds `sanitize` items (generic
+idea, but the text contains personal paths, hardware details or NDA wording) and
+`private` items (company/project specific). They are not part of this
+repository and are not licensed for redistribution.
+
+If you reuse a procedure, keep the MIT notice; the procedures are provided as
+is, without warranty of any kind.

@@ -1,0 +1,166 @@
+{
+  "schema": 1,
+  "generated_at": "2026-11-25T09:02:43+00:00",
+  "kind": "public-subset",
+  "source": "cline global configuration",
+  "skills": [
+    {
+      "name": "cage-cover-letter",
+      "path": "skills/cage-cover-letter/SKILL.md",
+      "visibility": "public",
+      "lines": 200,
+      "description": "Сопроводительное письмо в российскую компанию по фреймворку CAGE Панкая Гемавата (Cultural, Administrative, Geographic, Economic). Анализ «дистанции» между кандидатом и работодателем по четырём осям и сокращение этой дистанции прямо в письм"
+    },
+    {
+      "name": "git-history-readonly",
+      "path": "skills/git-history-readonly/SKILL.md",
+      "visibility": "public",
+      "lines": 139,
+      "description": "View git history — ANY git command, including git log/diff/show/blame and git -C <path> ... variants. Use before running git to avoid pager hangs and silent pipe failures. Triggers on: git, git log, git diff, git show, git blame, git status"
+    },
+    {
+      "name": "informational-style",
+      "path": "skills/informational-style/SKILL.md",
+      "visibility": "public",
+      "lines": 168,
+      "description": "Информационный стиль Ильяхова и Сарычевой («Пиши, сокращай», «Главред»). Редактура и написание текстов: смысл важнее формы, факты вместо оценок, забота о читателе. 5 уровней редактуры (стоп-слова → синтаксис → абзацы → структура → смысл). Т"
+    },
+    {
+      "name": "makefile-help",
+      "path": "skills/makefile-help/SKILL.md",
+      "visibility": "public",
+      "lines": 117,
+      "description": "Discover and use Makefile targets in the current project. Use when the user asks about Makefile, make targets, build commands, project scripts, or when starting work on a new project to enumerate available commands. Triggers on: \"make\", \"ma"
+    },
+    {
+      "name": "managed-sale",
+      "path": "skills/managed-sale/SKILL.md",
+      "visibility": "public",
+      "lines": 180,
+      "description": "Управляемая продажа: от раппорта к эмоциональному решению. Проводит клиента от контакта к решению через доверие, управление мелкими расхождениями, снятие возражений и сильную презентацию ценности — без спора, оправданий и потери позиции. Фо"
+    },
+    {
+      "name": "mcp-tools",
+      "path": "skills/mcp-tools/SKILL.md",
+      "visibility": "public",
+      "lines": 47,
+      "description": "Call MCP tools via local registry (http://localhost:3200). Use when the user wants to parse URLs, check code quality, summarize files, transcribe audio, screenshot, or query project history. Triggers on: parse url, check pep8, summarize, mc"
+    },
+    {
+      "name": "nlp-rapport",
+      "path": "skills/nlp-rapport/SKILL.md",
+      "visibility": "public",
+      "lines": 133,
+      "description": "НЛП-коммуникатор и мастер раппорта: калибровка, подстройка и ведение, Милтон-модель, мета-модель, пресуппозиции, рефрейминг. Помогает выстраивать доверие в переговорах, продажах, управлении конфликтами и обратной связи. Раппорт — безопасная"
+    },
+    {
+      "name": "safe-file-edits",
+      "path": "skills/safe-file-edits/SKILL.md",
+      "visibility": "public",
+      "lines": 182,
+      "description": "Edit, replace, rename, refactor, or move files. Use before any file mutation (including cp/mv/sed) to avoid silent failures. Triggers on: edit, replace, modify, patch, sed, in-place, rename, refactor, move, restructure, change."
+    },
+    {
+      "name": "write-kaggle-benchmarks",
+      "path": "skills/write-kaggle-benchmarks/SKILL.md",
+      "visibility": "public",
+      "lines": 129,
+      "description": "Minimal workflow for creating and pushing Kaggle Benchmark tasks via `kaggle b` CLI (2.2.4+). Use when the user wants to write a benchmark task, run it on models, check status, download results, or publish it. Triggers on: kaggle b init, ka"
+    }
+  ],
+  "workflows": [
+    {
+      "name": "bugfix",
+      "path": "workflows/bugfix.md",
+      "visibility": "public",
+      "lines": null,
+      "description": "Bug Fix Workflow"
+    },
+    {
+      "name": "commit",
+      "path": "workflows/commit.md",
+      "visibility": "public",
+      "lines": null,
+      "description": "Safe Git Commit Workflow"
+    },
+    {
+      "name": "context-update",
+      "path": "workflows/context-update.md",
+      "visibility": "public",
+      "lines": null,
+      "description": "Context Update Workflow"
+    },
+    {
+      "name": "docs-update",
+      "path": "workflows/docs-update.md",
+      "visibility": "public",
+      "lines": null,
+      "description": "Documentation Update Workflow"
+    },
+    {
+      "name": "feature",
+      "path": "workflows/feature.md",
+      "visibility": "public",
+      "lines": null,
+      "description": "Feature Development Workflow"
+    },
+    {
+      "name": "lint",
+      "path": "workflows/lint.md",
+      "visibility": "public",
+      "lines": null,
+      "description": "Lint & Format Workflow"
+    },
+    {
+      "name": "make",
+      "path": "workflows/make.md",
+      "visibility": "public",
+      "lines": null,
+      "description": "`/make` — Make Target Runner"
+    },
+    {
+      "name": "refactor",
+      "path": "workflows/refactor.md",
+      "visibility": "public",
+      "lines": null,
+      "description": "Refactoring Workflow"
+    },
+    {
+      "name": "test",
+      "path": "workflows/test.md",
+      "visibility": "public",
+      "lines": null,
+      "description": "Test Workflow"
+    }
+  ],
+  "rules": [
+    {
+      "name": "00-coding-ethics",
+      "path": "rules/00-coding-ethics.md",
+      "visibility": "public",
+      "lines": null,
+      "description": "Coding Ethics & Quality Standards"
+    },
+    {
+      "name": "02-context-management",
+      "path": "rules/02-context-management.md",
+      "visibility": "public",
+      "lines": null,
+      "description": "Context Management Rules"
+    },
+    {
+      "name": "03-tool-usage",
+      "path": "rules/03-tool-usage.md",
+      "visibility": "public",
+      "lines": null,
+      "description": "Tool Usage Rules"
+    },
+    {
+      "name": "10-text-generation-skills",
+      "path": "rules/10-text-generation-skills.md",
+      "visibility": "public",
+      "lines": null,
+      "description": "10 — Текстовые скиллы: когда включать и когда они спят"
+    }
+  ]
+}
