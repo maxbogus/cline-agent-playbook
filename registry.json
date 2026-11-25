@@ -21,7 +21,7 @@
       "name": "informational-style",
       "path": "skills/informational-style/SKILL.md",
       "visibility": "public",
-      "lines": 168,
+      "lines": 191,
       "description": "Информационный стиль Ильяхова и Сарычевой («Пиши, сокращай», «Главред»). Редактура и написание текстов: смысл важнее формы, факты вместо оценок, забота о читателе. 5 уровней редактуры (стоп-слова → синтаксис → абзацы → структура → смысл). Т"
     },
     {
@@ -35,7 +35,7 @@
       "name": "managed-sale",
       "path": "skills/managed-sale/SKILL.md",
       "visibility": "public",
-      "lines": 180,
+      "lines": 194,
       "description": "Управляемая продажа: от раппорта к эмоциональному решению. Проводит клиента от контакта к решению через доверие, управление мелкими расхождениями, снятие возражений и сильную презентацию ценности — без спора, оправданий и потери позиции. Фо"
     },
     {
@@ -56,7 +56,7 @@
       "name": "safe-file-edits",
       "path": "skills/safe-file-edits/SKILL.md",
       "visibility": "public",
-      "lines": 182,
+      "lines": 240,
       "description": "Edit, replace, rename, refactor, or move files. Use before any file mutation (including cp/mv/sed) to avoid silent failures. Triggers on: edit, replace, modify, patch, sed, in-place, rename, refactor, move, restructure, change."
     },
     {

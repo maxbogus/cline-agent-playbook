@@ -41,6 +41,22 @@ make status    # git status
 `registry.json` is the machine-readable index: every skill, workflow and rule
 is listed with its visibility and one-line description.
 
+## Publication gate
+
+Before pushing or opening a PR:
+
+1. `make check` — registry coverage, frontmatter, forbidden paths, public markers.
+2. Read the diff for material the checker cannot see:
+   - client and employer names, project code names;
+   - internal URLs, hostnames, IPs, ticket IDs;
+   - screenshots, logs and CSVs with real data;
+   - dates and amounts that identify a specific deal.
+3. If the procedure is reusable but the context is company-specific, rewrite the
+   procedure generically and keep the wording in `sanitize` — publish only after
+   that.
+
+The checker is a net, not a guarantee: it matches known markers, not intent.
+
 ## License
 
 MIT, see `LICENSE` and `NOTICE`.
