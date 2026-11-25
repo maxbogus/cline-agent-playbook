@@ -150,6 +150,62 @@ print(f"OK: {len(new_content)} bytes")
 PYEOF
 ```
 
+## Atomic Writes and Preserving User Changes
+
+Three failure modes this section prevents: a half-written file after an
+interrupt, a backup that disappears together with `/tmp`, and an edit the user
+made between your last read and your write.
+
+### Before you write
+
+```bash
+git --no-pager status --short -- <file>
+git --no-pager diff -- <file> | head -60
+```
+
+If the file has changes you did not make in this session, stop: save a copy and
+tell the user what you found. Do not "merge in passing".
+
+### Atomic write template
+
+```bash
+python3 << 'PYEOF'
+from pathlib import Path
+import os
+import tempfile
+
+path = Path("/abs/path/to/file")
+text = path.read_text()
+new_text = text.replace("OLD", "NEW", 1)
+if new_text == text:
+    raise SystemExit("ERROR: pattern not found")
+
+backup = path.with_suffix(path.suffix + ".bak")
+backup.write_text(text)
+
+fd, tmp = tempfile.mkstemp(dir=path.parent, prefix=path.name + ".", suffix=".tmp")
+with os.fdopen(fd, "w") as handle:
+    handle.write(new_text)
+os.replace(tmp, path)   # atomic on POSIX: readers see the old file or the new one
+print(f"OK: {path} ({len(new_text)} bytes), backup at {backup}")
+PYEOF
+```
+
+`os.replace` fails loudly when the directory is not writable or sits on another
+filesystem. That failure is the point: no silent partial write.
+
+### Rollback table
+
+| Situation | What is saved | How to roll back |
+|---|---|---|
+| Text replace | `<file>.bak` next to the file | `cp <file>.bak <file>` |
+| Multi-step refactor | `<old>.original` (see Refactoring Safety) | `cp <old>.original <old>` |
+| Wrong replace applied | `<file>.bak` | `cp <file>.bak <file>`, then redo |
+| No backup, file is tracked | git object store | `git --no-pager show HEAD:<file> > <file>` |
+
+Backups live next to the file, not in `/tmp`: `/tmp` is cleared on reboot and by
+`systemd-tmpfiles`, which is exactly when the copy matters most.
+
 ## Anti-Patterns (NEVER do these)
 
 - ❌ `sed -i 's/old/new/' file` — fails on special chars, multiline, Unicode
@@ -158,6 +214,7 @@ PYEOF
 - ❌ `awk '{gsub(/old/,"new")}1' file > tmp && mv tmp file` — fragile, loses permissions
 - ❌ Inline regex in `sed` — complex patterns belong in Python `re` module
 - ❌ `rm <old>` before verifying `ls <new>` succeeded — silent partial refactor
+- ❌ `path.write_text(new)` without a backup in a multi-step refactor — one crash loses both versions
 - ❌ Multiple `sed -i` in sequence without `grep` check between — failures compound
 - ❌ `git checkout -- <file>` to "revert" — overwrites uncommitted edits without backup; use `cp /tmp/*.original` instead
 
