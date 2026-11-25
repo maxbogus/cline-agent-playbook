@@ -60,7 +60,7 @@ When loading context, follow this order:
 2. **README.md** — setup, architecture, getting started
 3. **Architecture docs** (ai/, docs/, ARCHITECTURE.md)
 4. **Existing tests** — understand expected behavior
-5. **Recent git history** — `git log --oneline -10` to understand recent changes
+5. **Recent git history** — `git --no-pager log --oneline -10` to understand recent changes
 6. **Open issues/PRs** — if relevant to the task
 
 ## Requesting Clarification

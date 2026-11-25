@@ -20,8 +20,8 @@ Trigger: `/bugfix`
 
 ### Step 2: Investigate
 1. Run the failing code with verbose output.
-2. Use `git blame` on the affected file to find when it was last changed.
-3. Look at recent commits in `git log --oneline -10 -- <file>`.
+2. Use `git --no-pager blame` on the affected file to find when it was last changed.
+3. Look at recent commits in `git --no-pager log --oneline -10 -- <file>`.
 4. Identify the root cause (not just the symptom).
 
 ### Step 3: Write a Failing Test

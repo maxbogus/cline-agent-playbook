@@ -10,7 +10,7 @@ Trigger: `/commit`
 
 ### Step 1: Check Status
 ```bash
-git status
+git --no-pager status
 ```
 Review:
 - What files changed?
@@ -19,7 +19,7 @@ Review:
 
 ### Step 2: Review Changes
 ```bash
-git diff
+git --no-pager diff
 ```
 Check:
 - No secrets committed (API keys, passwords, tokens)
@@ -58,8 +58,8 @@ Types:
 
 ### Step 5: Verify
 ```bash
-git log --oneline -3
-git status  # Should be clean
+git --no-pager log --oneline -3
+git --no-pager status  # Should be clean
 ```
 
 ## Anti-Patterns to Avoid

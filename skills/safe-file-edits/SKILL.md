@@ -178,5 +178,6 @@ PYEOF
 
 After any edit, always verify:
 1. Run the relevant linter: `uv run ruff check /path` (Python) or `yarn lint` (TS)
-2. Check the diff: `git diff /path`
-3. If it looks wrong, `git checkout /path` and redo with Python
+2. Check the diff: `git --no-pager diff -- /path | head -100`
+3. If it looks wrong, restore the saved copy (`cp /tmp/<file>.original <file>`) and redo.
+   Never `git checkout -- <file>` — it discards the user's uncommitted edits.

@@ -11,12 +11,16 @@ paths: ["**/*"]
 ```
 Task type → Preferred tool
 ─────────────────────────────────────────────────────
-File operations (read/write/edit)     → Native tools (read_file, write_to_file, replace_in_file)
+Read / create a file                 → Native tools (read_file, write_to_file)
+Edit an existing file                → Python heredoc via execute_command
+                                       (see `skills/safe-file-edits`)
+Rename / move / batch refactor       → Python heredoc via execute_command
 Shell commands                       → Native tools (execute_command)
 Web scraping / parsing               → MCP (static-parser, browser-parser)
 Code quality analysis                → MCP (python-quality)
 Document transformation (PDF/DOCX)   → MCP (document-transformer)
-Git history analysis                 → MCP (git tools via mcp-registry)
+Git history (log/diff/show/blame)    → native `git --no-pager ... | head`
+                                       (see `skills/git-history-readonly`)
 Docker monitoring                    → MCP (docker metrics via mcp-registry)
 AI operations (Q&A, summarization)  → MCP (unified ask_question)
 Knowledge base                       → MCP (search_knowledge, learn_content)
@@ -72,14 +76,15 @@ Do NOT use `use_skill` for:
 - **For configuration** — read entire file if < 500 lines.
 - **Don't re-read** files you've already read in the same session.
 
-### `write_to_file` / `replace_in_file`
-- **Prefer `replace_in_file`** for small changes — preserves git history better.
-- **Use `write_to_file`** for new files or full rewrites.
-- **Always provide absolute paths**.
-- **For in-place text edits (not creation): use the `safe-file-edits` skill** — it uses Python
-  heredoc via `execute_command`. See: `~/.cline/skills/safe-file-edits/SKILL.md`.
-- **⚠️ CRITICAL: NEVER use `editor` tool with `replace_in_file` on existing files.**
-  It requires exact `old_text` match and fails on whitespace differences. Use Python heredoc instead.
+### `write_to_file` / editing existing files
+- **New file** → `write_to_file` with an absolute path.
+- **Existing file** → Python heredoc via `execute_command`; the procedure,
+  the atomic-write template and the rollback table are in
+  `skills/safe-file-edits`.
+- **Do not use** `editor` + `replace_in_file` on an existing file: the exact
+  `old_text` match breaks on whitespace and the retry loop hides the failure.
+- **Writes are atomic** — temp file in the same directory plus `os.replace`,
+  so an interrupted run never leaves a half-written file.
 
 ## Error Handling
 

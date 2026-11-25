@@ -18,7 +18,7 @@ Trigger: `/docs-update`
    - Are there undocumented APIs or features?
 
 ### Step 2: Gather Changes
-1. Check recent commits: `git log --oneline -20`
+1. Check recent commits: `git --no-pager log --oneline -20`
 2. Identify features/changes not yet documented.
 3. Check for TODO/FIXME comments that should be addressed.
 4. Review open issues for documentation requests.

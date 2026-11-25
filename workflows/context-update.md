@@ -24,10 +24,10 @@ Read current AGENTS.md and compare with reality:
 ls -la
 
 # Check recent changes
-git log --oneline -20
+git --no-pager log --oneline -20
 
 # Check for new services
-git diff --name-only HEAD~5..HEAD
+git --no-pager diff --name-only HEAD~5..HEAD
 ```
 
 Update sections:
